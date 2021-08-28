@@ -23,22 +23,17 @@ const minus = () => {
 };
 
 const App = () => {
-  // React.useEffect(() => {
-  //   setInterval(() => {
-  //     plus();
-  //   }, 200);
-  // }, []);
-
   return (
     <div>
+      <Controls />
       <Counter />
-      <Counter2 />
     </div>
   );
 };
 
-const Counter = () => {
+const Controls = () => {
   const count = useValue(countValue);
+
   return (
     <div>
       <button onClick={minus}>-</button>
@@ -47,10 +42,11 @@ const Counter = () => {
   );
 };
 
-const Counter2 = () => {
-  const count = useValue(countValue);
-  const doubleCount = useValue(doubleCountValue);
-  const doubleDoubleCount = useValue(doubleDoubleCountValue);
+const Counter = () => {
+  const count = useValue<number>(countValue);
+  const doubleCount = useValue<number>(doubleCountValue);
+  const doubleDoubleCount = useValue<number>(doubleDoubleCountValue);
+
   return (
     <div>
       <div>Count: {count}</div>
