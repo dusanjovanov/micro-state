@@ -17,20 +17,20 @@ npm install hali --save
 ### Usage
 
 ```tsx
-import { value, derived, effect, useValue } from 'hali';
+import { value, select, effect, useValue } from 'hali';
 
 const countValue = value(1);
 
-effect([countValue], () => console.log(countValue.value));
+effect([countValue], () => console.log(countValue.v));
 
-const doubleCountValue = derived([countValue], () => countValue.value * 2);
+const doubleCountValue = select([countValue], () => countValue.v * 2);
 
 const plus = () => {
-  countValue.value++;
+  countValue.v++;
 };
 
 const minus = () => {
-  countValue.value--;
+  countValue.v--;
 };
 
 const App = () => {
@@ -48,3 +48,14 @@ const App = () => {
   );
 };
 ```
+
+### Changelog
+
+#### v1.0.0
+
+Breaking changes:
+- `derived` has been renamed to `select`
+- `countValue.value` has been replaced with `countValue.v`
+
+Other changes:
+- Improved Typescript support: type is now being inferred from `useValue`

@@ -1,25 +1,25 @@
-import 'react-app-polyfill/ie11';
 import * as React from 'react';
+import 'react-app-polyfill/ie11';
 import * as ReactDOM from 'react-dom';
-import { derived, effect, useValue, value } from '../.';
+import { effect, select, useValue, value } from '../.';
 
 const countValue = value(1);
 
-effect([countValue], () => console.log(countValue.value));
+effect([countValue], () => console.log(countValue.v));
 
-const doubleCountValue = derived([countValue], () => countValue.value * 2);
+const doubleCountValue = select([countValue], () => countValue.v * 2);
 
-const doubleDoubleCountValue = derived(
+const doubleDoubleCountValue = select(
   [doubleCountValue],
-  () => doubleCountValue.value * 2
+  () => doubleCountValue.v * 2
 );
 
 const plus = () => {
-  countValue.value++;
+  countValue.v++;
 };
 
 const minus = () => {
-  countValue.value--;
+  countValue.v--;
 };
 
 const App = () => {
@@ -43,9 +43,9 @@ const Controls = () => {
 };
 
 const Counter = () => {
-  const count = useValue<number>(countValue);
-  const doubleCount = useValue<number>(doubleCountValue);
-  const doubleDoubleCount = useValue<number>(doubleDoubleCountValue);
+  const count = useValue(countValue);
+  const doubleCount = useValue(doubleCountValue);
+  const doubleDoubleCount = useValue(doubleDoubleCountValue);
 
   return (
     <div>
