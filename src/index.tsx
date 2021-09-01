@@ -1,6 +1,6 @@
 import { value } from './value';
-import { derived } from './derived';
+import { select } from './select';
 import { useValue } from './useValue';
 import { effect } from './effect';
 
-export { value, derived, useValue, effect };
+export { value, select, useValue, effect };

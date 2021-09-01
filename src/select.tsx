@@ -1,9 +1,9 @@
 import mitt from 'mitt';
 import { ValueWrapper } from './types';
 
-export function derived<DerivedValue = any>(
+export function select<ReturnValue = any>(
   values: ValueWrapper<any>[],
-  fn: () => DerivedValue
+  fn: () => ReturnValue
 ) {
   let _v = fn();
   const emitter = mitt();
@@ -14,7 +14,7 @@ export function derived<DerivedValue = any>(
     });
   });
   return {
-    get value() {
+    get v() {
       return _v;
     },
     emitter,

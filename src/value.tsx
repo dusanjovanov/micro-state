@@ -1,13 +1,13 @@
 import mitt from 'mitt';
 
 export function value<Value = any>(v: Value) {
-  let _v = v;
+  let _v: Value = v;
   const emitter = mitt();
   return {
-    get value() {
+    get v() {
       return _v;
     },
-    set value(v: Value) {
+    set v(v: Value) {
       _v = v;
       emitter.emit('update', v);
     },
