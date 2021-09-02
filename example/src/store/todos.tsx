@@ -72,5 +72,4 @@ const applyFilter = () => {
   });
 };
 
-effect([todosValue], applyFilter);
-effect([filterValue], applyFilter);
+effect([todosValue, filterValue], applyFilter);
