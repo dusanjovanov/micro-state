@@ -49,6 +49,23 @@ const App = () => {
 };
 ```
 
+### Full example (Counter and Todo)
+
+[Example](https://github.com/dusanjovanov/hali/tree/master/example)
+
+### Notes
+
+- If your value is an object (or array), you always return a new object 
+```tsx
+  const objValue = value({ a: 1, b: 2 });
+
+  // THIS
+  objValue.v = { ...objValue.v, c: 3 }
+
+  // NOT THIS (this will work, but will not trigger an update)
+  objValue.v.c = 3
+```
+
 ### Changelog
 
 #### v1.0.0
