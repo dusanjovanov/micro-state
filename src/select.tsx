@@ -9,8 +9,11 @@ export function select<ReturnValue = any>(
   const emitter = mitt();
   values.forEach(v => {
     v.emitter.on('update', () => {
+      const oldValue = _v;
       _v = fn();
-      emitter.emit('update', _v);
+      if (oldValue !== _v) {
+        emitter.emit('update', _v);
+      }
     });
   });
   return {

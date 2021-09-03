@@ -8,8 +8,11 @@ export function value<Value = any>(v: Value) {
       return _v;
     },
     set v(v: Value) {
+      const oldValue = _v
       _v = v;
-      emitter.emit('update', v);
+      if(oldValue !== _v) {
+        emitter.emit('update', _v);
+      } 
     },
     emitter,
   };
