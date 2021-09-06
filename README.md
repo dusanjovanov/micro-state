@@ -51,7 +51,8 @@ const App = () => {
 
 ### Full example (Counter and Todo)
 
-[Example](https://github.com/dusanjovanov/hali/tree/master/example)
+[Demo](https://codesandbox.io/s/hali-example-mtcc7)<br/>
+[Source code](https://github.com/dusanjovanov/hali/tree/master/example)
 
 ### Notes
 
